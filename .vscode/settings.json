@@ -1,0 +1,4 @@
+{
+    "git.ignoreLimitWarning": true,
+    "python.analysis.exclude": ["**/node_modules", "**/__pycache__", "**/build", ".*", "data"]
+}

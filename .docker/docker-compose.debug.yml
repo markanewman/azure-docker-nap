@@ -1,0 +1,20 @@
+services:
+  azure_docker_nap:
+    pull_policy: build
+    image: azure_docker_nap:debug
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile.debug
+    environment:
+      - PYTHONPATH=/workspaces/azure-docker-nap/src
+      - IS_DEBUG=TRUE
+    volumes:
+      - type: bind
+        source: ../..
+        target: /workspaces
+      - type: volume
+        source: adn_data
+        target: /workspaces/azure-docker-nap/data
+        volume:
+          nocopy: true
+    command: ["sleep", "infinity"]
