@@ -26,7 +26,7 @@ Make _sure_ you are _NOT_ running in DevContainers (F1 > Dev Containers: Reopen 
 It will overwrite the attached container and cause VS Code to freak out.
 
 1. Open up PowerShell
-   * `crtl + shft + ~`
+   * `ctrl + shft + ~`
 2. Validate _# VS Code_ step _Setup environment variables in `~/.docker/.env`_ was run
 3. Create the service.
    Use `create` > `start` vs `up` so that the project will not shutdown when you exit the PowerShell window.

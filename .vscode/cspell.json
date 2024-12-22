@@ -9,7 +9,8 @@
         "devcontainers",
         "typeguard",
         "typechecked",
-        "pycache"
+        "pycache",
+        "shft"
     ],
     "import": []
 }
