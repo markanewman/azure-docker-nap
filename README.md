@@ -1,5 +1,20 @@
 Test docker project: read >> nap >> write
 
+I need a simple artifact I can use to test _automation_.
+Something to test a file's existence, simulate processing, and write out results.
+The string 3 of them together because I am testing the actual _automation_, not processing.
+
+This is super simple in Python running locally, just a couple lines of code.
+It runs on my PC is not good enough.
+It needs to run on the server too; hence Docker
+That is also not good enough.
+Local servers loose power; hence Azure
+I use in DevContainers because I like a clean dev environment.
+You shouldn't make dinner while having dirty dishes lying around from breakfast.
+Same principal.
+When you add in the Git, VS Code, and a now needed explanation; you end up transforming a single sub-20 line file, into a  17 file 240+ line mess.
+As of now, it is the best I can do :(
+
 # VS Code
 
 I use DevContainers to allow a consistent development experience and to keep my desktop clean.
