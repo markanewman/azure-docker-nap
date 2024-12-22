@@ -10,7 +10,8 @@
         "typeguard",
         "typechecked",
         "pycache",
-        "shft"
+        "shft",
+        "eastus2"
     ],
     "import": []
 }

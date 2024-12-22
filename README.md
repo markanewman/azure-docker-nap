@@ -22,7 +22,7 @@ I use DevContainers to allow a consistent development experience and to keep my 
 # Local deploy
 
 Testing in VS code is necessary, but not sufficient.
-Make _sure_ you are _NOT_ running in DevContainers (F1 > Dev Containers: Reopen Folder Locally).
+Make _sure_ you _are NOT_ running in DevContainers (F1 > Dev Containers: Reopen Folder Locally).
 It will overwrite the attached container and cause VS Code to freak out.
 
 1. Open up PowerShell
@@ -34,4 +34,28 @@ It will overwrite the attached container and cause VS Code to freak out.
    docker build -f .docker/Dockerfile -t azure_docker_nap:latest .
    docker-compose -f .docker/docker-compose.yml create
    docker-compose -f .docker/docker-compose.yml start
+   ```
+
+# Azure deploy
+
+I use Bicep to deploy IoC.
+Make _sure_ you _ARE_ running in DevContainers.
+All the tools are already added.
+
+1. Open up a VS Code terminal
+   * `ctrl + shft + ~`
+2. Login to Azure
+   ```{bash}
+   az login
+   ```
+3. Create the resource group and add in all the shared resources
+   ```{bash}
+   resource_group=HappyFunTime
+   az group create -l eastus2 -n $resource_group
+   az deployment group create --resource-group $resource_group --template-file .azure_env/main.bicep
+   ```
+4. Push the image to the Azure repository.
+   ```{bash}
+   acr_name=$(az acr list --resource-group $resource_group --query [0].name | cut -d'"' -f 2)
+   az acr build --registry $acr_name -f .docker/Dockerfile -t azure_docker_nap:latest .
    ```
